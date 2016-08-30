@@ -64,7 +64,15 @@ class Notifier implements INotifier {
 
 		switch ($notification->getSubject()) {
 			case self::SUBJECT:
-				$notification->setParsedSubject($l->t('%s announced %s', $notification->getSubjectParameters()));
+				$parameters = $notification->getSubjectParameters();
+
+				// Remove the user id from the author: "Nextcloud (Nextcloud)"
+				$openingBracket = strpos($parameters[0], '(', 1);
+				if ($openingBracket !== false) {
+					$parameters[0] = trim(substr($parameters[0], 0, $openingBracket));
+				}
+
+				$notification->setParsedSubject($l->t('%s announced “%s”', $parameters));
 				return $notification;
 
 			default:
