@@ -18,4 +18,8 @@
 	<dependencies>
 		<owncloud min-version="9.1" max-version="9.2" />
 	</dependencies>
+
+	<settings>
+		<admin>OCA\NextcloudAnnouncements\Settings\Admin</admin>
+	</settings>
 </info>
