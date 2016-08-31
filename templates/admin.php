@@ -26,7 +26,7 @@ script('nextcloud_announcements', 'admin');
 /** @var array $_ */
 /** @var \OCP\IL10N $l */
 ?>
-<div id="nextcloudannouncements" class="section">
+<div id="nextcloud_announcements" class="section">
 	<h2 class="inlineblock"><?php p($l->t('Nextcloud announcements')); ?></h2>
 
 	<p>
