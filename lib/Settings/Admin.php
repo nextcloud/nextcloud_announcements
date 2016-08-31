@@ -36,18 +36,13 @@ class Admin implements ISettings {
 	/** @var IConfig */
 	protected $config;
 
-	/** @var IL10N */
-	protected $l10n;
-
 	/**
 	 * @param string $appName
 	 * @param IConfig $config
-	 * @param IL10N $l
 	 */
-	public function __construct($appName, IConfig $config, IL10N $l) {
+	public function __construct($appName, IConfig $config) {
 		$this->appName = $appName;
 		$this->config = $config;
-		$this->l10n = $l;
 	}
 
 	/**
