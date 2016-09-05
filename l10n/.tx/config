@@ -1,0 +1,9 @@
+[main]
+host = https://www.transifex.com
+lang_map = ja_JP: ja
+
+[nextcloud.nextcloud_announcements]
+file_filter = <lang>/nextcloud_announcements.po
+source_file = templates/nextcloud_announcements.pot
+source_lang = en
+type = PO
