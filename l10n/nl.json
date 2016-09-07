@@ -1,0 +1,6 @@
+{ "translations": {
+    "Nextcloud announcements" : "Nextcloud aankondigingen",
+    "%s announced “%s”" : "%s heeft \"%s\" aangekondigt",
+    "These groups will be notified about the announcements." : "Deze groepen zullen een melding krijgen van deze aankondigingen."
+},"pluralForm" :"nplurals=2; plural=(n != 1);"
+}
