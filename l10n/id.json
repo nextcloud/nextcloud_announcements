@@ -1,0 +1,6 @@
+{ "translations": {
+    "Nextcloud announcements" : "Pengumuman Nextcloud",
+    "%s announced “%s”" : "%s mengumumkan \"%s\"",
+    "These groups will be notified about the announcements." : "Grup-grup ini akan akan diberikan pengumuman."
+},"pluralForm" :"nplurals=1; plural=0;"
+}
