@@ -96,7 +96,7 @@ class Crawler extends TimedJob  {
 			$notification->setApp($this->appName)
 				->setDateTime(new \DateTime((string) $item->pubDate))
 				->setObject($this->appName, $id)
-				->setSubject(Notifier::SUBJECT, [(string) $item->author, (string) $item->title])
+				->setSubject(Notifier::SUBJECT, [(string) $item->title])
 				->setLink((string) $item->link);
 
 			foreach ($this->getUsersToNotify() as $uid) {
@@ -135,7 +135,7 @@ class Crawler extends TimedJob  {
 		$csn = $loadedCertificate['tbsCertificate']['serialNumber']->toString();
 		$revoked = $crl->getRevoked($csn);
 		if ($revoked !== false) {
-			throw new \Exception(sprintf('Certificate "%s" has been revoked', $csn));
+			throw new \Exception('Certificate has been revoked');
 		}
 
 		// Verify if the certificate has been issued by the Nextcloud Code Authority CA
@@ -161,7 +161,7 @@ class Crawler extends TimedJob  {
 
 		if (!$verified) {
 			// Signature does not match
-			throw new \Exception('App with id nextcloud_announcements has invalid signature');
+			throw new \Exception('Feed has an invalid signature');
 		}
 
 		return $feedBody;
