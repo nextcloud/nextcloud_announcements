@@ -24,6 +24,7 @@
 namespace OCA\NextcloudAnnouncements\Notification;
 
 
+use OCP\IURLGenerator;
 use OCP\L10N\IFactory;
 use OCP\Notification\INotification;
 use OCP\Notification\INotifier;
@@ -38,13 +39,18 @@ class Notifier implements INotifier {
 	/** @var IFactory */
 	protected $l10nFactory;
 
+	/** @var IURLGenerator */
+	protected $url;
+
 	/**
 	 * @param string $appName
 	 * @param IFactory $l10nFactory
+	 * @param IURLGenerator $url
 	 */
-	public function __construct($appName, IFactory $l10nFactory) {
+	public function __construct($appName, IFactory $l10nFactory, IURLGenerator $url) {
 		$this->appName = $appName;
 		$this->l10nFactory = $l10nFactory;
+		$this->url = $url;
 	}
 
 	/**
@@ -72,7 +78,13 @@ class Notifier implements INotifier {
 					$parameters[0] = trim(substr($parameters[0], 0, $openingBracket));
 				}
 
-				$notification->setParsedSubject($l->t('%s announced “%s”', $parameters));
+				$notification->setParsedSubject($l->t('Nextcloud announcement'))
+					->setParsedMessage($parameters[1]);
+
+				if (method_exists($notification, 'setIcon')) {
+					$notification->setIcon($this->url->getAbsoluteURL($this->url->imagePath($this->appName, 'app-dark.svg')));
+				}
+
 				return $notification;
 
 			default:
