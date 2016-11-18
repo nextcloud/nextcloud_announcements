@@ -31,10 +31,11 @@ use OCP\IGroup;
 use OCP\IGroupManager;
 use OCP\IUser;
 use OCP\Notification\IManager as INotificationManager;
+use phpseclib\File\X509;
 
 class Crawler extends TimedJob  {
 
-	const FEED_URL = 'https://nextcloud.com/blogfeed/';
+	const FEED_URL = 'https://pushfeed.nextcloud.com/feed';
 
 	/** @var string */
 	protected $appName;
@@ -65,19 +66,21 @@ class Crawler extends TimedJob  {
 		$this->clientService = $clientService;
 
 		// Run once per day
-		$this->setInterval(1); // FIXME 24 * 60 * 60);
+		$this->setInterval(24 * 60 * 60);
 	}
 
 
 	protected function run($argument) {
-		$client = $this->clientService->newClient();
-		$response = $client->get(self::FEED_URL);
-
-		if ($response->getStatusCode() !== Http::STATUS_OK) {
+		try {
+			$feedBody = $this->loadFeed();
+			$rss = simplexml_load_string($feedBody);
+			if ($rss === false) {
+				throw new \Exception('Invalid XML feed');
+			}
+		} catch (\Exception $e) {
+			// Something is wrong 🙊
 			return;
 		}
-
-		$rss = simplexml_load_string($response->getBody());
 
 		/**
 		 * TODO: https://github.com/contribook/main/issues/8
@@ -108,6 +111,77 @@ class Crawler extends TimedJob  {
 		}
 
 		$this->config->setAppValue($this->appName, 'pub_date', $rss->channel->pubDate);
+	}
+
+	/**
+	 * @return string
+	 * @throws \Exception
+	 */
+	protected function loadFeed() {
+		$signature = $this->readFile('.signature');
+
+		if (!$signature) {
+			throw new \Exception('Invalid signature fetched from the server');
+		}
+
+		$certificate = new X509();
+		$certificate->loadCA(file_get_contents(\OC::$SERVERROOT . '/resources/codesigning/root.crt'));
+		$loadedCertificate = $certificate->loadX509(file_get_contents(__DIR__ . '/../../resources/nextcloud_announcements.crt'));
+
+		// Verify if the certificate has been revoked
+		$crl = new X509();
+		$crl->loadCA(file_get_contents(\OC::$SERVERROOT . '/resources/codesigning/root.crt'));
+		$crl->loadCRL(file_get_contents(\OC::$SERVERROOT . '/resources/codesigning/root.crl'));
+		if ($crl->validateSignature() !== true) {
+			throw new \Exception('Could not validate CRL signature');
+		}
+		$csn = $loadedCertificate['tbsCertificate']['serialNumber']->toString();
+		$revoked = $crl->getRevoked($csn);
+		if ($revoked !== false) {
+			throw new \Exception(sprintf('Certificate "%s" has been revoked', $csn));
+		}
+
+		// Verify if the certificate has been issued by the Nextcloud Code Authority CA
+		if($certificate->validateSignature() !== true) {
+			throw new \Exception('App with id nextcloud_announcements has a certificate not issued by a trusted Code Signing Authority');
+		}
+
+		// Verify if the certificate is issued for the requested app id
+		$certInfo = openssl_x509_parse(file_get_contents(__DIR__ . '/../../resources/nextcloud_announcements.crt'));
+		if(!isset($certInfo['subject']['CN'])) {
+			throw new \Exception('App with id nextcloud_announcements has a cert with no CN');
+		}
+		if($certInfo['subject']['CN'] !== 'nextcloud_announcements') {
+			throw new \Exception(sprintf('App with id nextcloud_announcements has a cert issued to %s', $certInfo['subject']['CN']));
+		}
+
+		$feedBody = $this->readFile('.rss');
+
+		// Check if the signature actually matches the downloaded content
+		$certificate = openssl_get_publickey(file_get_contents(__DIR__ . '/../../resources/nextcloud_announcements.crt'));
+		$verified = (bool)openssl_verify($feedBody, base64_decode($signature), $certificate, OPENSSL_ALGO_SHA512);
+		openssl_free_key($certificate);
+
+		if (!$verified) {
+			// Signature does not match
+			throw new \Exception('App with id nextcloud_announcements has invalid signature');
+		}
+
+		return $feedBody;
+	}
+
+	/**
+	 * @param string $file
+	 * @return string
+	 * @throws \Exception
+	 */
+	protected function readFile($file) {
+		$client = $this->clientService->newClient();
+		$response = $client->get(self::FEED_URL . $file);
+		if ($response->getStatusCode() !== Http::STATUS_OK) {
+			throw new \Exception('Could not load file');
+		}
+		return $response->getBody();
 	}
 
 	/**
