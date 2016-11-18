@@ -82,12 +82,9 @@ class Crawler extends TimedJob  {
 			return;
 		}
 
-		/**
-		 * TODO: https://github.com/contribook/main/issues/8
 		if ($rss->channel->pubDate === $this->config->getAppValue($this->appName, 'pub_date', '')) {
 			return;
 		}
-		 */
 
 		foreach ($rss->channel->item as $item) {
 			$id = md5((string) $item->guid);
