@@ -136,7 +136,7 @@ class Crawler extends TimedJob  {
 
 		$certificate = new X509();
 		$certificate->loadCA(file_get_contents(\OC::$SERVERROOT . '/resources/codesigning/root.crt'));
-		$loadedCertificate = $certificate->loadX509(file_get_contents(__DIR__ . '/../../resources/nextcloud_announcements.crt'));
+		$loadedCertificate = $certificate->loadX509(file_get_contents(__DIR__ . '/../../appinfo/certificate.crt'));
 
 		// Verify if the certificate has been revoked
 		$crl = new X509();
