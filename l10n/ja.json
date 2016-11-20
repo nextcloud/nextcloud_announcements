@@ -1,6 +1,6 @@
 { "translations": {
     "Nextcloud announcements" : "Nextcloud アナウンス",
-    "%s announced “%s”" : "%s から %s が通知されました",
+    "Nextcloud announcement" : "Nextcloud アナウンス",
     "These groups will be notified about the announcements." : "このグループに対してアナウンスします。"
 },"pluralForm" :"nplurals=1; plural=0;"
 }
