@@ -6,6 +6,7 @@
 	<licence>AGPL</licence>
 	<author>Joas Schilling</author>
 	<version>1.0</version>
+	<default_enable/>
 	<namespace>NextcloudAnnouncements</namespace>
 
 	<category>monitoring</category>
