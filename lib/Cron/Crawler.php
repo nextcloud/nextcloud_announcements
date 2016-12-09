@@ -157,7 +157,7 @@ class Crawler extends TimedJob  {
 		}
 
 		// Verify if the certificate is issued for the requested app id
-		$certInfo = openssl_x509_parse(file_get_contents(__DIR__ . '/../../resources/nextcloud_announcements.crt'));
+		$certInfo = openssl_x509_parse(file_get_contents(__DIR__ . '/../../appinfo/certificate.crt'));
 		if(!isset($certInfo['subject']['CN'])) {
 			throw new \Exception('App with id nextcloud_announcements has a cert with no CN');
 		}
@@ -168,7 +168,7 @@ class Crawler extends TimedJob  {
 		$feedBody = $this->readFile('.rss');
 
 		// Check if the signature actually matches the downloaded content
-		$certificate = openssl_get_publickey(file_get_contents(__DIR__ . '/../../resources/nextcloud_announcements.crt'));
+		$certificate = openssl_get_publickey(file_get_contents(__DIR__ . '/../../appinfo/certificate.crt'));
 		$verified = (bool)openssl_verify($feedBody, base64_decode($signature), $certificate, OPENSSL_ALGO_SHA512);
 		openssl_free_key($certificate);
 
