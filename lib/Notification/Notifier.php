@@ -71,19 +71,9 @@ class Notifier implements INotifier {
 		switch ($notification->getSubject()) {
 			case self::SUBJECT:
 				$parameters = $notification->getSubjectParameters();
-
-				// Remove the user id from the author: "Nextcloud (Nextcloud)"
-				$openingBracket = strpos($parameters[0], '(', 1);
-				if ($openingBracket !== false) {
-					$parameters[0] = trim(substr($parameters[0], 0, $openingBracket));
-				}
-
 				$notification->setParsedSubject($l->t('Nextcloud announcement'))
-					->setParsedMessage($parameters[1]);
-
-				if (method_exists($notification, 'setIcon')) {
-					$notification->setIcon($this->url->getAbsoluteURL($this->url->imagePath($this->appName, 'app-dark.svg')));
-				}
+					->setParsedMessage($parameters[0])
+					->setIcon($this->url->getAbsoluteURL($this->url->imagePath($this->appName, 'app-dark.svg')));
 
 				return $notification;
 
