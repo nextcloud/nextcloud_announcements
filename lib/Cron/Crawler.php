@@ -101,7 +101,7 @@ class Crawler extends TimedJob  {
 			}
 			$pubDate = new \DateTime((string) $item->pubDate);
 
-			if ($pubDate < $lastPubDateTime) {
+			if ($pubDate <= $lastPubDateTime) {
 				continue;
 			}
 
