@@ -1,0 +1,6 @@
+{ "translations": {
+    "Nextcloud announcements" : "Nextcloud съобщения",
+    "Nextcloud announcement" : "Nextcloud съобщение",
+    "These groups will be notified about the announcements." : "Тези групи ще бъдат уведомявани относно съобщенията."
+},"pluralForm" :"nplurals=2; plural=(n != 1);"
+}
