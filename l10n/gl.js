@@ -1,0 +1,9 @@
+OC.L10N.register(
+    "nextcloud_announcements",
+    {
+    "Nextcloud announcements" : "Anuncios de Nextcloud",
+    "Nextcloud announcement" : "Anuncio de Nextcloud",
+    "Shows the latest news of Nextcloud in your notifications." : "Amosa as últimas noticias de Nextcloud nas súas notificacións.",
+    "These groups will be notified about the announcements." : "Estes grupos recibirán notificacións sobre os anuncios."
+},
+"nplurals=2; plural=(n != 1);");
