@@ -3,6 +3,7 @@ OC.L10N.register(
     {
     "Nextcloud announcements" : "Nextcloud skelbimai",
     "Nextcloud announcement" : "Nextcloud skelbimai",
+    "Shows the latest news of Nextcloud in your notifications." : "Rodo jūsų pranešimuose paskiausias Nextcloud naujienas.",
     "These groups will be notified about the announcements." : "Šioms grupėms bus pranešama apie skelbimus."
 },
 "nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && (n%100<10 || n%100>=20) ? 1 : 2);");
