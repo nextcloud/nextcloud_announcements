@@ -1,4 +1,5 @@
 { "translations": {
-    "Nextcloud announcements" : "Nextcloudi teated"
+    "Nextcloud announcements" : "Nextcloudi teated",
+    "Nextcloud announcement" : "Nextcloudi teadaanne"
 },"pluralForm" :"nplurals=2; plural=(n != 1);"
 }
