@@ -3,7 +3,7 @@ OC.L10N.register(
     {
     "Nextcloud announcements" : "Nextcloud განცხადებები",
     "Nextcloud announcement" : "Nextcloud განცხადება",
-    "Shows the latest news of Nextcloud in your notifications." : "აჩვენებს Nextcloud-ის უახლეს ამბებს თქვენს შეტყობინებებში",
-    "These groups will be notified about the announcements." : "ეს ჯგუფები შეიტყობენ განცხადებებს"
+    "Shows the latest news of Nextcloud in your notifications." : "თქვენს შეტყობინებებში აჩვენებს Nextcloud-ის უახლეს ამბებს",
+    "These groups will be notified about the announcements." : "განცხადებებს შეიტყობენ ეს ჯგუფები"
 },
 "nplurals=1; plural=0;");
