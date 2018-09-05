@@ -5,7 +5,7 @@
 	<description>Nextcloud announcements brings the latest news of Nextcloud into your notifications</description>
 	<licence>AGPL</licence>
 	<author>Joas Schilling</author>
-	<version>1.3.0</version>
+	<version>1.4.0</version>
 	<default_enable/>
 	<namespace>NextcloudAnnouncements</namespace>
 
@@ -17,7 +17,7 @@
 	<repository type="git">https://github.com/nextcloud/nextcloud_announcements.git</repository>
 
 	<dependencies>
-		<nextcloud min-version="14" max-version="14" />
+		<nextcloud min-version="15" max-version="15" />
 	</dependencies>
 
 	<types>
