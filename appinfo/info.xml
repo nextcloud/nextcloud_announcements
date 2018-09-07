@@ -1,13 +1,19 @@
 <?xml version="1.0"?>
-<info>
+<info xmlns:xsi= "http://www.w3.org/2001/XMLSchema-instance"
+	  xsi:noNamespaceSchemaLocation="https://apps.nextcloud.com/schema/apps/info.xsd">
 	<id>nextcloud_announcements</id>
 	<name>Nextcloud announcements</name>
+	<summary>Nextcloud announcements brings the latest news of Nextcloud into your notifications</summary>
 	<description>Nextcloud announcements brings the latest news of Nextcloud into your notifications</description>
-	<licence>AGPL</licence>
+	<version>1.4.0</version>
+	<licence>agpl</licence>
 	<author>Joas Schilling</author>
-	<version>1.3.0</version>
-	<default_enable/>
 	<namespace>NextcloudAnnouncements</namespace>
+	<default_enable/>
+
+	<types>
+		<logging/>
+	</types>
 
 	<category>monitoring</category>
 	<category>social</category>
@@ -17,18 +23,14 @@
 	<repository type="git">https://github.com/nextcloud/nextcloud_announcements.git</repository>
 
 	<dependencies>
-		<nextcloud min-version="14" max-version="14" />
+		<nextcloud min-version="15" max-version="15" />
 	</dependencies>
-
-	<types>
-		<logging/>
-	</types>
-
-	<settings>
-		<admin>OCA\NextcloudAnnouncements\Settings\Admin</admin>
-	</settings>
 
 	<background-jobs>
 		<job>OCA\NextcloudAnnouncements\Cron\Crawler</job>
 	</background-jobs>
+
+	<settings>
+		<admin>OCA\NextcloudAnnouncements\Settings\Admin</admin>
+	</settings>
 </info>
