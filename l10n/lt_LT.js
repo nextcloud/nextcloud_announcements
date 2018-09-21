@@ -3,6 +3,7 @@ OC.L10N.register(
     {
     "Nextcloud announcements" : "Nextcloud pranešimai",
     "Nextcloud announcement" : "Nextcloud pranešimas",
+    "Nextcloud announcements brings the latest news of Nextcloud into your notifications" : "Nextcloud pranešimai informuoja jus apie naujausius \"Nextcloud\" naujienas. ",
     "Shows the latest news of Nextcloud in your notifications." : "Rodyti Nextcloud naujienas pranešimų skiltyje.",
     "These groups will be notified about the announcements." : "Šios grupės bus informuojamos."
 },
