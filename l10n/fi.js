@@ -3,6 +3,7 @@ OC.L10N.register(
     {
     "Nextcloud announcements" : "Nextcloud-tiedotteet",
     "Nextcloud announcement" : "Nextcloud-tiedote",
+    "Nextcloud announcements brings the latest news of Nextcloud into your notifications" : "Nextcloud-tiedotteet tuo uusimmat Nextcloudiin liittyvät uutiset ilmoituksiisi",
     "Shows the latest news of Nextcloud in your notifications." : "Näyttää uusimmat Nextcloud-uutiset ilmoituksissasi.",
     "These groups will be notified about the announcements." : "Nämä ryhmät saavat ilmoituksen tiedotteista."
 },
