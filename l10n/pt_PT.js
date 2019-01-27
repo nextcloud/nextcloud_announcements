@@ -3,7 +3,7 @@ OC.L10N.register(
     {
     "Nextcloud announcements" : "Anúncios Nextcloud",
     "Nextcloud announcement" : "Anúncio Nextcloud",
-    "Nextcloud announcements brings the latest news of Nextcloud into your notifications" : "Anúncios Nexcloud trás as notícias mais recentes às suas notificações",
+    "Nextcloud announcements brings the latest news of Nextcloud into your notifications" : "Anúncios Nexcloud trazem as notícias mais recentes às suas notificações",
     "Shows the latest news of Nextcloud in your notifications." : "Mostra as últimas notícias nas suas notificações.",
     "These groups will be notified about the announcements." : "Estes grupos serão notificados sobre anúncios."
 },
