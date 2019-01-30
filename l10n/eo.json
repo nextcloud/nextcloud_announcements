@@ -1,0 +1,8 @@
+{ "translations": {
+    "Nextcloud announcements" : "Anoncoj pri Nextcloud",
+    "Nextcloud announcement" : "Anonco pri Nextcloud",
+    "Nextcloud announcements brings the latest news of Nextcloud into your notifications" : "Anoncoj pri Nextcloud montras la lastajn novaĵojn pri Nextcloud pere de la sciigoj.",
+    "Shows the latest news of Nextcloud in your notifications." : "Montras la lastajn novaĵojn pri Nextcloud pere de la sciigoj.",
+    "These groups will be notified about the announcements." : "Tiuj ĉi grupoj sciiĝos pri la anoncoj."
+},"pluralForm" :"nplurals=2; plural=(n != 1);"
+}
