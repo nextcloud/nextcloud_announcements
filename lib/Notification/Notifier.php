@@ -24,8 +24,10 @@
 namespace OCA\NextcloudAnnouncements\Notification;
 
 
+use OCP\IGroupManager;
 use OCP\IURLGenerator;
 use OCP\L10N\IFactory;
+use OCP\Notification\IAction;
 use OCP\Notification\INotification;
 use OCP\Notification\INotifier;
 
@@ -35,22 +37,21 @@ class Notifier implements INotifier {
 
 	/** @var string */
 	protected $appName;
-
 	/** @var IFactory */
 	protected $l10nFactory;
-
 	/** @var IURLGenerator */
 	protected $url;
+	/** @var IGroupManager */
+	protected $groupManager;
 
-	/**
-	 * @param string $appName
-	 * @param IFactory $l10nFactory
-	 * @param IURLGenerator $url
-	 */
-	public function __construct($appName, IFactory $l10nFactory, IURLGenerator $url) {
+	public function __construct(string $appName,
+								IFactory $l10nFactory,
+								IURLGenerator $url,
+								IGroupManager $groupManager) {
 		$this->appName = $appName;
 		$this->l10nFactory = $l10nFactory;
 		$this->url = $url;
+		$this->groupManager = $groupManager;
 	}
 
 	/**
@@ -94,6 +95,15 @@ class Notifier implements INotifier {
 				$notification->setParsedSubject($l->t('Nextcloud announcement'))
 					->setParsedMessage($parameters[0])
 					->setIcon($this->url->getAbsoluteURL($this->url->imagePath($this->appName, 'app-dark.svg')));
+
+				$isAdmin = $this->groupManager->isAdmin($notification->getUser());
+				if ($isAdmin) {
+					$action = $notification->createAction();
+					$action->setParsedLabel($l->t('Disable announcements'))
+						->setLink($this->url->linkToOCSRouteAbsolute('provisioning_api.AppsController.disable', ['app' => 'nextcloud_announcements']), IAction::TYPE_DELETE)
+						->setPrimary(false);
+					$notification->addParsedAction($action);
+				}
 
 				return $notification;
 
