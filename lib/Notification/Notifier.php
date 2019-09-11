@@ -109,14 +109,14 @@ class Notifier implements INotifier {
 
 				$isAdmin = $this->groupManager->isAdmin($notification->getUser());
 				if ($isAdmin) {
-					$action = $notification->createAction();
-					$action->setParsedLabel($l->t('Disable announcements'))
-						->setLink($this->url->linkToOCSRouteAbsolute('provisioning_api.AppsController.disable', ['app' => 'nextcloud_announcements']), IAction::TYPE_DELETE)
-						->setPrimary(false);
-					$notification->addParsedAction($action);
-
 					$groups = $this->config->getAppValue($this->appName, 'notification_groups', '');
 					if ($groups === '') {
+						$action = $notification->createAction();
+						$action->setParsedLabel($l->t('Disable announcements'))
+							->setLink($this->url->linkToOCSRouteAbsolute('provisioning_api.AppsController.disable', ['app' => 'nextcloud_announcements']), IAction::TYPE_DELETE)
+							->setPrimary(false);
+						$notification->addParsedAction($action);
+
 						$message .= "\n\n" . $l->t('(These announcements are only shown to administrators)');
 					}
 				}
