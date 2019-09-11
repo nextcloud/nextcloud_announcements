@@ -66,7 +66,11 @@ class Crawler extends TimedJob  {
 		$this->clientService = $clientService;
 
 		// Run once per day
-		$this->setInterval(24 * 60 * 60);
+		$interval = 24 * 60 * 60;
+		// Add random interval to spread load on server
+		$interval += random_int(0, 60) * 60;
+
+		$this->setInterval($interval);
 	}
 
 
