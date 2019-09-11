@@ -24,6 +24,7 @@
 namespace OCA\NextcloudAnnouncements\Notification;
 
 
+use OCP\IConfig;
 use OCP\IGroupManager;
 use OCP\IURLGenerator;
 use OCP\L10N\IFactory;
@@ -40,16 +41,20 @@ class Notifier implements INotifier {
 	protected $l10nFactory;
 	/** @var IURLGenerator */
 	protected $url;
+	/** @var IConfig */
+	protected $config;
 	/** @var IGroupManager */
 	protected $groupManager;
 
 	public function __construct(string $appName,
 								IFactory $l10nFactory,
 								IURLGenerator $url,
+								IConfig $config,
 								IGroupManager $groupManager) {
 		$this->appName = $appName;
 		$this->l10nFactory = $l10nFactory;
 		$this->url = $url;
+		$this->config = $config;
 		$this->groupManager = $groupManager;
 	}
 
@@ -71,8 +76,8 @@ class Notifier implements INotifier {
 		switch ($notification->getSubject()) {
 			case self::SUBJECT:
 				$parameters = $notification->getSubjectParameters();
+				$message = $parameters[0];
 				$notification->setParsedSubject($l->t('Nextcloud announcement'))
-					->setParsedMessage($parameters[0])
 					->setIcon($this->url->getAbsoluteURL($this->url->imagePath($this->appName, 'app-dark.svg')));
 
 				$isAdmin = $this->groupManager->isAdmin($notification->getUser());
@@ -82,7 +87,14 @@ class Notifier implements INotifier {
 						->setLink($this->url->linkToOCSRouteAbsolute('provisioning_api.AppsController.disable', ['app' => 'nextcloud_announcements']), 'DELETE')
 						->setPrimary(false);
 					$notification->addParsedAction($action);
+
+					$groups = $this->config->getAppValue($this->appName, 'notification_groups', '');
+					if ($groups === '') {
+						$message .= "\n\n" . $l->t('(These announcements are only shown to administrators)');
+					}
 				}
+
+				$notification->setParsedMessage($message);
 
 				return $notification;
 
