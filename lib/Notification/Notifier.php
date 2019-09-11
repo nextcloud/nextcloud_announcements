@@ -101,6 +101,12 @@ class Notifier implements INotifier {
 				$notification->setParsedSubject($l->t('Nextcloud announcement'))
 					->setIcon($this->url->getAbsoluteURL($this->url->imagePath($this->appName, 'app-dark.svg')));
 
+				$action = $notification->createAction();
+				$action->setParsedLabel($l->t('Read more'))
+					->setLink($notification->getLink(), IAction::TYPE_WEB)
+					->setPrimary(true);
+				$notification->addParsedAction($action);
+
 				$isAdmin = $this->groupManager->isAdmin($notification->getUser());
 				if ($isAdmin) {
 					$action = $notification->createAction();
