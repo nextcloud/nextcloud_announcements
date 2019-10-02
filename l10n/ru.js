@@ -3,6 +3,9 @@ OC.L10N.register(
     {
     "Nextcloud announcements" : "Уведомления Nextcloud",
     "Nextcloud announcement" : "Уведомление Nextcloud",
+    "Read more" : "Читать далее",
+    "Disable announcements" : "Отключить уведомления",
+    "(These announcements are only shown to administrators)" : "(Эти уведомления отображаются только администраторам)",
     "Nextcloud announcements brings the latest news of Nextcloud into your notifications" : "Анонсы Nextcloud показывают последние новости о Nextcloud в уведомлениях",
     "Shows the latest news of Nextcloud in your notifications." : "Показывает новости Nextcloud в уведомлениях.",
     "These groups will be notified about the announcements." : "Эта группа будет получать уведомления"
