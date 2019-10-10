@@ -86,7 +86,7 @@ class Notifier implements INotifier {
 					if ($groups === '') {
 						$action = $notification->createAction();
 						$action->setParsedLabel($l->t('Disable announcements'))
-							->setLink($this->url->linkToOCSRouteAbsolute('provisioning_api.AppsController.disable', ['app' => 'nextcloud_announcements']), 'DELETE')
+							->setLink($this->url->linkToOCSRouteAbsolute('provisioning_api.Apps.disable', ['app' => 'nextcloud_announcements']), 'DELETE')
 							->setPrimary(false);
 						$notification->addParsedAction($action);
 
