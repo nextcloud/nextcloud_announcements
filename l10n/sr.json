@@ -1,6 +1,9 @@
 { "translations": {
     "Nextcloud announcements" : "Некстклауд објаве",
     "Nextcloud announcement" : "Некстклауд објава",
+    "Read more" : "Прочитајте више",
+    "Disable announcements" : "Искључи објаве",
+    "(These announcements are only shown to administrators)" : "(ове објаве се приказују само администраторима)",
     "Nextcloud announcements brings the latest news of Nextcloud into your notifications" : "Некстклауд објаве доносе најновије вести о Некстклауду у Ваша обавештења",
     "Shows the latest news of Nextcloud in your notifications." : "Прикажи најновије Некстклауд вести у обавештењима.",
     "These groups will be notified about the announcements." : "Ове групе ће бити обавештене о Некстклауд објавама."
