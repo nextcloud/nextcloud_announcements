@@ -31,6 +31,7 @@ use OCP\L10N\IFactory;
 use OCP\Notification\IAction;
 use OCP\Notification\INotification;
 use OCP\Notification\INotifier;
+use Symfony\Component\Routing\Exception\RouteNotFoundException;
 
 class Notifier implements INotifier {
 
@@ -111,11 +112,16 @@ class Notifier implements INotifier {
 				if ($isAdmin) {
 					$groups = $this->config->getAppValue($this->appName, 'notification_groups', '');
 					if ($groups === '') {
-						$action = $notification->createAction();
-						$action->setParsedLabel($l->t('Disable announcements'))
-							->setLink($this->url->linkToOCSRouteAbsolute('provisioning_api.Apps.disable', ['app' => 'nextcloud_announcements']), IAction::TYPE_DELETE)
-							->setPrimary(false);
-						$notification->addParsedAction($action);
+						try {
+							$action = $notification->createAction();
+							$action->setParsedLabel($l->t('Disable announcements'))
+								->setLink($this->url->linkToOCSRouteAbsolute('provisioning_api.Apps.disable',
+									['app' => 'nextcloud_announcements']), IAction::TYPE_DELETE)
+								->setPrimary(false);
+							$notification->addParsedAction($action);
+						} catch (RouteNotFoundException $e) {
+							// if the provisioning api is not enabled we can't show the disable link
+						}
 
 						$message .= "\n\n" . $l->t('(These announcements are only shown to administrators)');
 					}
