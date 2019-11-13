@@ -1,6 +1,9 @@
 { "translations": {
     "Nextcloud announcements" : "Najave Nextcloud",
     "Nextcloud announcement" : "Najava Nextcloud",
+    "Read more" : "Več o tem",
+    "Disable announcements" : "Onemogoči najave",
+    "(These announcements are only shown to administrators)" : "(Tovrstna obvestila in najave so prikazane le skrbnikom)",
     "Nextcloud announcements brings the latest news of Nextcloud into your notifications" : "Program omogoča prikaz zadnjih novic Nextcloud med obvestili.",
     "Shows the latest news of Nextcloud in your notifications." : "Prikaže zadnje novice Nextcloud med obvestili.",
     "These groups will be notified about the announcements." : "Skupine, ki bodo prejele najave."
