@@ -3,6 +3,7 @@ OC.L10N.register(
     {
     "Nextcloud announcements" : "Nextcloud oznámení",
     "Nextcloud announcement" : "Oznámení ohledně Nextcloud",
+    "Read more" : "Přečtěte si více",
     "Disable announcements" : "Vypnout oznamování",
     "(These announcements are only shown to administrators)" : "(Tato oznámení jsou zobrazována pouze správcům)",
     "Nextcloud announcements brings the latest news of Nextcloud into your notifications" : "Oznámení z projektu Nextcloud přinášejí nejnovější zprávy o dění v něm do vašich oznámení",
