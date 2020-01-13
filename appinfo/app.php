@@ -21,5 +21,7 @@
  *
  */
 
-$app = new \OCA\NextcloudAnnouncements\AppInfo\Application();
+use \OCA\NextcloudAnnouncements\AppInfo\Application;
+
+$app = \OC::$server->query(Application::class);
 $app->register();
