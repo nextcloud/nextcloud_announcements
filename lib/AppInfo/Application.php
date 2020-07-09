@@ -25,8 +25,11 @@ namespace OCA\NextcloudAnnouncements\AppInfo;
 
 use OCA\NextcloudAnnouncements\Notification\Notifier;
 use OCP\AppFramework\App;
+use OCP\AppFramework\Bootstrap\IBootContext;
+use OCP\AppFramework\Bootstrap\IBootstrap;
+use OCP\AppFramework\Bootstrap\IRegistrationContext;
 
-class Application extends App {
+class Application extends App implements IBootstrap {
 
 	const APP_ID = 'nextcloud_announcements';
 
@@ -34,11 +37,10 @@ class Application extends App {
 		parent::__construct(self::APP_ID);
 	}
 
-	public function register() {
-		$this->registerNotificationNotifier();
+	public function register(IRegistrationContext $context): void {
 	}
 
-	protected function registerNotificationNotifier() {
-		$this->getContainer()->getServer()->getNotificationManager()->registerNotifierService(Notifier::class);
+	public function boot(IBootContext $context): void {
+		$context->getServerContainer()->getNotificationManager()->registerNotifierService(Notifier::class);
 	}
 }
