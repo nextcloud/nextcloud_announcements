@@ -3,7 +3,9 @@ OC.L10N.register(
     {
     "Nextcloud announcements" : "Nextcloud skelbimai",
     "Nextcloud announcement" : "Nextcloud skelbimas",
+    "Read more" : "Daugiau skaitykite",
     "Disable announcements" : "Išjungti skelbimus",
+    "(These announcements are only shown to administrators)" : "(Šius pranešimus matyti gali tik administratoriai)",
     "Nextcloud announcements brings the latest news of Nextcloud into your notifications" : "Nextcloud pranešimai informuoja jus apie naujausius \"Nextcloud\" naujienas. ",
     "Shows the latest news of Nextcloud in your notifications." : "Rodo paskiausias Nextcloud naujienas jūsų pranešimuose.",
     "These groups will be notified about the announcements." : "Šioms grupėms bus pranešama apie skelbimus."
