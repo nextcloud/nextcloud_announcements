@@ -3,7 +3,7 @@ OC.L10N.register(
     {
     "Nextcloud announcements" : "Anuncis del Nextcloud",
     "Nextcloud announcement" : "Anunci del Nextcloud",
-    "Read more" : "Llegeix més",
+    "Read more" : "Més informació",
     "Disable announcements" : "Desactiva els anuncis",
     "(These announcements are only shown to administrators)" : "(Aquests anuncis només es mostren als administradors.)",
     "Nextcloud announcements brings the latest news of Nextcloud into your notifications" : "Els anuncis del Nextcloud incorporen les darreres notícies del Nextcloud a les vostres notificacions",
