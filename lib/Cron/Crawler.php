@@ -174,7 +174,11 @@ class Crawler extends TimedJob  {
 		// Check if the signature actually matches the downloaded content
 		$certificate = openssl_get_publickey(file_get_contents(__DIR__ . '/../../appinfo/certificate.crt'));
 		$verified = (bool)openssl_verify($feedBody, base64_decode($signature), $certificate, OPENSSL_ALGO_SHA512);
-		openssl_free_key($certificate);
+		
+		// PHP 8 automatically frees the key instance and deprecates the function
+           	if (PHP_VERSION_ID < 80000) {
+                openssl_free_key($certificate);
+            	}
 
 		if (!$verified) {
 			// Signature does not match
