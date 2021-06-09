@@ -2,7 +2,7 @@ OC.L10N.register(
     "nextcloud_announcements",
     {
     "Nextcloud announcements" : "Nextcloud oznámení",
-    "Nextcloud announcement" : "Oznámení ohledně Nextcloud",
+    "Nextcloud announcement" : "Nextcloud oznámení",
     "Read more" : "Přečtěte si více",
     "Disable announcements" : "Vypnout oznamování",
     "(These announcements are only shown to administrators)" : "(Tato oznámení jsou zobrazována pouze správcům)",
