@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "67830675d35af38f636a0983570a8937",
+    "content-hash": "8ec9fecf38e47f48d8f1154d17d974f2",
     "packages": [],
     "packages-dev": [
         {
@@ -159,16 +159,16 @@
         },
         {
             "name": "christophwurst/nextcloud",
-            "version": "dev-master",
+            "version": "dev-stable22",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ChristophWurst/nextcloud_composer.git",
-                "reference": "b8a6f713939cf124a3798de106c1798486d5d781"
+                "reference": "cb6185dce69016b05dc3c80d962339ceed0e2dfb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ChristophWurst/nextcloud_composer/zipball/b8a6f713939cf124a3798de106c1798486d5d781",
-                "reference": "b8a6f713939cf124a3798de106c1798486d5d781",
+                "url": "https://api.github.com/repos/ChristophWurst/nextcloud_composer/zipball/cb6185dce69016b05dc3c80d962339ceed0e2dfb",
+                "reference": "cb6185dce69016b05dc3c80d962339ceed0e2dfb",
                 "shasum": ""
             },
             "require": {
@@ -180,7 +180,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "22.0.0-dev"
+                    "dev-master": "23.0.0-dev"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -194,7 +194,11 @@
                 }
             ],
             "description": "Composer package containing Nextcloud's public API (classes, interfaces)",
-            "time": "2021-03-26T23:34:29+00:00"
+            "support": {
+                "issues": "https://github.com/ChristophWurst/nextcloud_composer/issues",
+                "source": "https://github.com/ChristophWurst/nextcloud_composer/tree/stable22"
+            },
+            "time": "2021-06-24T11:33:26+00:00"
         },
         {
             "name": "composer/package-versions-deprecated",
@@ -4627,5 +4631,5 @@
     "platform-overrides": {
         "php": "7.3"
     },
-    "plugin-api-version": "1.1.0"
+    "plugin-api-version": "2.1.0"
 }
