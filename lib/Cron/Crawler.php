@@ -21,10 +21,10 @@
 
 namespace OCA\NextcloudAnnouncements\Cron;
 
-
-use OC\BackgroundJob\TimedJob;
 use OCA\NextcloudAnnouncements\Notification\Notifier;
 use OCP\AppFramework\Http;
+use OCP\AppFramework\Utility\ITimeFactory;
+use OCP\BackgroundJob\TimedJob;
 use OCP\Http\Client\IClientService;
 use OCP\IConfig;
 use OCP\IGroup;
@@ -33,9 +33,8 @@ use OCP\IUser;
 use OCP\Notification\IManager as INotificationManager;
 use phpseclib\File\X509;
 
-class Crawler extends TimedJob  {
-
-	const FEED_URL = 'https://pushfeed.nextcloud.com/feed';
+class Crawler extends TimedJob {
+	public const FEED_URL = 'https://pushfeed.nextcloud.com/feed';
 
 	/** @var string */
 	protected $appName;
@@ -48,17 +47,16 @@ class Crawler extends TimedJob  {
 	/** @var IClientService */
 	protected $clientService;
 
-	/** @var string[] */
+	/** @var array<array-key, bool> */
 	protected $notifyUsers = [];
 
-	/**
-	 * @param string $appName
-	 * @param IConfig $config
-	 * @param IGroupManager $groupManager
-	 * @param INotificationManager $notificationManager
-	 * @param IClientService $clientService
-	 */
-	public function __construct($appName, IConfig $config, IGroupManager $groupManager, INotificationManager $notificationManager, IClientService $clientService) {
+	public function __construct(string $appName,
+								ITimeFactory $time,
+								IConfig $config,
+								IGroupManager $groupManager,
+								INotificationManager $notificationManager,
+								IClientService $clientService) {
+		parent::__construct($time);
 		$this->appName = $appName;
 		$this->config = $config;
 		$this->groupManager = $groupManager;
@@ -91,7 +89,9 @@ class Crawler extends TimedJob  {
 			// First call, don't spam the user with old stuff...
 			$this->config->setAppValue($this->appName, 'pub_date', $rss->channel->pubDate);
 			return;
-		} else if ($rss->channel->pubDate === $lastPubDate) {
+		}
+
+		if ($rss->channel->pubDate === $lastPubDate) {
 			// Nothing new here...
 			return;
 		}
@@ -156,16 +156,16 @@ class Crawler extends TimedJob  {
 		}
 
 		// Verify if the certificate has been issued by the Nextcloud Code Authority CA
-		if($certificate->validateSignature() !== true) {
+		if ($certificate->validateSignature() !== true) {
 			throw new \Exception('App with id nextcloud_announcements has a certificate not issued by a trusted Code Signing Authority');
 		}
 
 		// Verify if the certificate is issued for the requested app id
 		$certInfo = openssl_x509_parse(file_get_contents(__DIR__ . '/../../appinfo/certificate.crt'));
-		if(!isset($certInfo['subject']['CN'])) {
+		if (!isset($certInfo['subject']['CN'])) {
 			throw new \Exception('App with id nextcloud_announcements has a cert with no CN');
 		}
-		if($certInfo['subject']['CN'] !== 'nextcloud_announcements') {
+		if ($certInfo['subject']['CN'] !== 'nextcloud_announcements') {
 			throw new \Exception(sprintf('App with id nextcloud_announcements has a cert issued to %s', $certInfo['subject']['CN']));
 		}
 
@@ -174,11 +174,11 @@ class Crawler extends TimedJob  {
 		// Check if the signature actually matches the downloaded content
 		$certificate = openssl_get_publickey(file_get_contents(__DIR__ . '/../../appinfo/certificate.crt'));
 		$verified = (bool)openssl_verify($feedBody, base64_decode($signature), $certificate, OPENSSL_ALGO_SHA512);
-		
+
 		// PHP 8 automatically frees the key instance and deprecates the function
-           	if (PHP_VERSION_ID < 80000) {
-                openssl_free_key($certificate);
-            	}
+		if (PHP_VERSION_ID < 80000) {
+			openssl_free_key($certificate);
+		}
 
 		if (!$verified) {
 			// Signature does not match

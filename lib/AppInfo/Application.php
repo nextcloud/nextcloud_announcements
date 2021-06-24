@@ -30,8 +30,7 @@ use OCP\AppFramework\Bootstrap\IBootstrap;
 use OCP\AppFramework\Bootstrap\IRegistrationContext;
 
 class Application extends App implements IBootstrap {
-
-	const APP_ID = 'nextcloud_announcements';
+	public const APP_ID = 'nextcloud_announcements';
 
 	public function __construct() {
 		parent::__construct(self::APP_ID);

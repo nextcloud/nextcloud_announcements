@@ -23,7 +23,6 @@
 
 namespace OCA\NextcloudAnnouncements\Notification;
 
-
 use OCP\IConfig;
 use OCP\IGroupManager;
 use OCP\IURLGenerator;
@@ -33,8 +32,7 @@ use OCP\Notification\INotification;
 use OCP\Notification\INotifier;
 
 class Notifier implements INotifier {
-
-	const SUBJECT = 'announced';
+	public const SUBJECT = 'announced';
 
 	/** @var string */
 	protected $appName;
