@@ -25,7 +25,6 @@ namespace OCA\NextcloudAnnouncements\Settings;
 
 use OCP\AppFramework\Http\TemplateResponse;
 use OCP\IConfig;
-use OCP\IL10N;
 use OCP\Settings\ISettings;
 
 class Admin implements ISettings {
@@ -74,5 +73,4 @@ class Admin implements ISettings {
 	public function getPriority() {
 		return 30;
 	}
-
 }
