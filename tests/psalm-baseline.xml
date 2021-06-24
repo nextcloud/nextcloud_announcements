@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<files psalm-version="4.7.0@d4377c0baf3ffbf0b1ec6998e8d1be2a40971005">
+  <file src="lib/Cron/Crawler.php">
+    <InvalidPropertyAssignmentValue occurrences="1">
+      <code>$this-&gt;notifyUsers</code>
+    </InvalidPropertyAssignmentValue>
+    <InvalidReturnStatement occurrences="1">
+      <code>$response-&gt;getBody()</code>
+    </InvalidReturnStatement>
+    <InvalidReturnType occurrences="1">
+      <code>string</code>
+    </InvalidReturnType>
+    <UndefinedClass occurrences="2">
+      <code>X509</code>
+      <code>X509</code>
+    </UndefinedClass>
+  </file>
+</files>
