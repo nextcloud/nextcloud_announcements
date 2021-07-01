@@ -2,11 +2,11 @@
 	"autoload-dev": {
 		"psr-4": {
 			"OCP\\": "vendor/christophwurst/nextcloud/OCP",
-			"OCA\\Notifications\\": "lib/"
+			"OCA\\NextcloudAnnouncements\\": "lib/"
 		}
 	},
-	"name": "nextcloud/notifications",
-	"description": "notifications",
+	"name": "nextcloud/nextcloud_announcements",
+	"description": "nextcloud_announcements",
 	"license": "AGPL",
 	"require-dev": {
 		"phpunit/phpunit": "^9.5",
