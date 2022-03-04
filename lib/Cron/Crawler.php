@@ -24,6 +24,7 @@ namespace OCA\NextcloudAnnouncements\Cron;
 use OCA\NextcloudAnnouncements\Notification\Notifier;
 use OCP\AppFramework\Http;
 use OCP\AppFramework\Utility\ITimeFactory;
+use OCP\BackgroundJob\IJob;
 use OCP\BackgroundJob\TimedJob;
 use OCP\Http\Client\IClientService;
 use OCP\IConfig;
@@ -69,6 +70,8 @@ class Crawler extends TimedJob {
 		$interval += random_int(0, 60) * 60;
 
 		$this->setInterval($interval);
+		// this should not run during maintenance to not overload the target server
+		$this->setTimeSensitivity(IJob::TIME_SENSITIVE);
 	}
 
 
