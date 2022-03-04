@@ -70,7 +70,8 @@ class Crawler extends TimedJob {
 		$interval += random_int(0, 60) * 60;
 
 		$this->setInterval($interval);
-		$this->setTimeSensitivity(IJob::TIME_INSENSITIVE);
+		// this should not run during maintenance to not overload the target server
+		$this->setTimeSensitivity(IJob::TIME_SENSITIVE);
 	}
 
 
