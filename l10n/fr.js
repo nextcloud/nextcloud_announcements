@@ -10,4 +10,4 @@ OC.L10N.register(
     "Shows the latest news of Nextcloud in your notifications." : "Afficher les dernières actualités de Nextcloud dans vos notifications.",
     "These groups will be notified about the announcements." : "Ces groupes seront notifiés des annonces."
 },
-"nplurals=2; plural=(n > 1);");
+"nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;");
