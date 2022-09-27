@@ -1,7 +1,7 @@
 {
 	"autoload-dev": {
 		"psr-4": {
-			"OCP\\": "vendor/christophwurst/nextcloud/OCP",
+			"OCP\\": "vendor/nextcloud/ocp/OCP",
 			"OCA\\NextcloudAnnouncements\\": "lib/"
 		}
 	},
@@ -26,8 +26,8 @@
 		"psalm:fix": "psalm --alter --issues=InvalidReturnType,InvalidNullableReturnType,MissingParamType,InvalidFalsableReturnType"
 	},
 	"require-dev": {
-		"christophwurst/nextcloud": "dev-master",
 		"nextcloud/coding-standard": "^1.0.0",
+		"nextcloud/ocp": "dev-master",
 		"phpunit/phpunit": "^9.5",
 		"vimeo/psalm": "^4.27.0"
 	}
