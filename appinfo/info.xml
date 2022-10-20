@@ -9,7 +9,6 @@
 	<licence>agpl</licence>
 	<author>Joas Schilling</author>
 	<namespace>NextcloudAnnouncements</namespace>
-	<default_enable/>
 
 	<types>
 		<logging/>
