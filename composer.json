@@ -29,6 +29,6 @@
 		"nextcloud/coding-standard": "^1.0.0",
 		"nextcloud/ocp": "dev-master",
 		"phpunit/phpunit": "^9.5",
-		"vimeo/psalm": "^4.27.0"
+		"vimeo/psalm": "^5.1.0"
 	}
 }
