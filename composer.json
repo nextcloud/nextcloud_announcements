@@ -12,7 +12,7 @@
 		"classmap-authoritative": true,
 		"optimize-autoloader": true,
 		"platform": {
-			"php": "7.4"
+			"php": "8.0"
 		},
 		"sort-packages": true
 	},
@@ -23,7 +23,8 @@
 		"psalm": "psalm --threads=1",
 		"psalm:update-baseline": "psalm --threads=1 --update-baseline --set-baseline=tests/psalm-baseline.xml",
 		"psalm:clear": "psalm --clear-cache && psalm --clear-global-cache",
-		"psalm:fix": "psalm --alter --issues=InvalidReturnType,InvalidNullableReturnType,MissingParamType,InvalidFalsableReturnType"
+		"psalm:fix": "psalm --alter --issues=InvalidReturnType,InvalidNullableReturnType,MissingParamType,InvalidFalsableReturnType",
+		"test:unit": "echo 'Only testing installation of the app'"
 	},
 	"require-dev": {
 		"nextcloud/coding-standard": "^1.0.0",
