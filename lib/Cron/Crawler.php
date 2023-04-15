@@ -52,11 +52,11 @@ class Crawler extends TimedJob {
 	protected $notifyUsers = [];
 
 	public function __construct(string $appName,
-								ITimeFactory $time,
-								IConfig $config,
-								IGroupManager $groupManager,
-								INotificationManager $notificationManager,
-								IClientService $clientService) {
+		ITimeFactory $time,
+		IConfig $config,
+		IGroupManager $groupManager,
+		INotificationManager $notificationManager,
+		IClientService $clientService) {
 		parent::__construct($time);
 		$this->appName = $appName;
 		$this->config = $config;
