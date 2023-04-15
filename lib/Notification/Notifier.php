@@ -46,10 +46,10 @@ class Notifier implements INotifier {
 	protected $groupManager;
 
 	public function __construct(string $appName,
-								IFactory $l10nFactory,
-								IURLGenerator $url,
-								IConfig $config,
-								IGroupManager $groupManager) {
+		IFactory $l10nFactory,
+		IURLGenerator $url,
+		IConfig $config,
+		IGroupManager $groupManager) {
 		$this->appName = $appName;
 		$this->l10nFactory = $l10nFactory;
 		$this->url = $url;
