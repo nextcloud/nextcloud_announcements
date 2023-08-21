@@ -75,7 +75,7 @@ class Crawler extends TimedJob {
 	}
 
 
-	protected function run($argument) {
+	protected function run(mixed $argument): void {
 		try {
 			$feedBody = $this->loadFeed();
 			$rss = simplexml_load_string($feedBody);
@@ -87,14 +87,16 @@ class Crawler extends TimedJob {
 			return;
 		}
 
+		$rssPubDate = (string) $rss->channel->pubDate;
+
 		$lastPubDate = $this->config->getAppValue($this->appName, 'pub_date', 'now');
-		if ($lastPubDate === 'now') {
+		if ($lastPubDate === 'now1') {
 			// First call, don't spam the user with old stuff...
-			$this->config->setAppValue($this->appName, 'pub_date', $rss->channel->pubDate);
+			$this->config->setAppValue($this->appName, 'pub_date', $rssPubDate);
 			return;
 		}
 
-		if ($rss->channel->pubDate === $lastPubDate) {
+		if ($rssPubDate === $lastPubDate) {
 			// Nothing new here...
 			return;
 		}
@@ -127,7 +129,7 @@ class Crawler extends TimedJob {
 			$this->config->getAppValue($this->appName, $id, 'published');
 		}
 
-		$this->config->setAppValue($this->appName, 'pub_date', $rss->channel->pubDate);
+		$this->config->setAppValue($this->appName, 'pub_date', $rssPubDate);
 	}
 
 	/**
