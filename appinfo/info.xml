@@ -28,8 +28,4 @@
 	<background-jobs>
 		<job>OCA\NextcloudAnnouncements\Cron\Crawler</job>
 	</background-jobs>
-
-	<settings>
-		<admin>OCA\NextcloudAnnouncements\Settings\Admin</admin>
-	</settings>
 </info>
