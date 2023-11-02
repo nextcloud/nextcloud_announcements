@@ -216,7 +216,11 @@ class Crawler extends TimedJob {
 			return array_keys($this->notifyUsers);
 		}
 
-		$groups = $this->config->getAppValue($this->appName, 'notification_groups', '["admin"]');
+		$groups = $this->config->getAppValue($this->appName, 'notification_groups', '');
+		if ($groups === '') {
+			// Fallback to the update notifications when not explicitly configured back in the days when this app had a UI
+			$groups = $this->config->getAppValue('updatenotification', 'notify_groups', '["admin"]');
+		}
 		$groups = json_decode($groups, true);
 
 		if ($groups === null) {
