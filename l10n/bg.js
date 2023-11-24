@@ -6,8 +6,6 @@ OC.L10N.register(
     "Read more" : "Прочети повече",
     "Disable announcements" : "Изключи известия",
     "(These announcements are only shown to administrators)" : "(Тези съобщения са само видими за администратори)",
-    "Nextcloud announcements brings the latest news of Nextcloud into your notifications" : "Обявленията на Nextcloud донасят последните новини от Nextcloud във вашите известия",
-    "Shows the latest news of Nextcloud in your notifications." : "Добави последните новини от Nextcloud към известията.",
-    "These groups will be notified about the announcements." : "Горните групите ще бъдат уведомявани при публикуване на новини."
+    "Nextcloud announcements brings the latest news of Nextcloud into your notifications" : "Обявленията на Nextcloud донасят последните новини от Nextcloud във вашите известия"
 },
 "nplurals=2; plural=(n != 1);");
