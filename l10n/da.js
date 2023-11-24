@@ -6,8 +6,6 @@ OC.L10N.register(
     "Read more" : "Læs mere",
     "Disable announcements" : "Deaktivér annonceringer",
     "(These announcements are only shown to administrators)" : "(Disse annonceringer vises kun til administratorer)",
-    "Nextcloud announcements brings the latest news of Nextcloud into your notifications" : "Meddelelser fra Nextcloud leverer de seneste nyheder fra Nextcloud i dine notifikationer. ",
-    "Shows the latest news of Nextcloud in your notifications." : "Vis nyheder fra Nextcloud i dine notifikationer.",
-    "These groups will be notified about the announcements." : "Disse grupper vil blive underettet om annonceringerne."
+    "Nextcloud announcements brings the latest news of Nextcloud into your notifications" : "Meddelelser fra Nextcloud leverer de seneste nyheder fra Nextcloud i dine notifikationer. "
 },
 "nplurals=2; plural=(n != 1);");
