@@ -6,8 +6,6 @@ OC.L10N.register(
     "Read more" : "Read more",
     "Disable announcements" : "Disable announcements",
     "(These announcements are only shown to administrators)" : "(These announcements are only shown to administrators)",
-    "Nextcloud announcements brings the latest news of Nextcloud into your notifications" : "Nextcloud announcements brings the latest news of Nextcloud into your notifications",
-    "Shows the latest news of Nextcloud in your notifications." : "Shows the latest news from Nextcloud in your notifications.",
-    "These groups will be notified about the announcements." : "These groups will be notified about the announcements."
+    "Nextcloud announcements brings the latest news of Nextcloud into your notifications" : "Nextcloud announcements brings the latest news of Nextcloud into your notifications"
 },
 "nplurals=2; plural=(n != 1);");
