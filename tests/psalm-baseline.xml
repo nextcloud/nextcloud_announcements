@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="5.15.0@5c774aca4746caf3d239d9c8cadb9f882ca29352">
+<files psalm-version="5.20.0@3f284e96c9d9be6fe6b15c79416e1d1903dcfef4">
   <file src="lib/Cron/Crawler.php">
+    <DeprecatedMethod>
+      <code>getAppValue</code>
+      <code>getAppValue</code>
+      <code>getAppValue</code>
+      <code>getAppValue</code>
+      <code>getAppValue</code>
+      <code>setAppValue</code>
+      <code>setAppValue</code>
+    </DeprecatedMethod>
     <InvalidReturnStatement>
       <code><![CDATA[$response->getBody()]]></code>
     </InvalidReturnStatement>
@@ -11,5 +20,10 @@
       <code>X509</code>
       <code>X509</code>
     </UndefinedClass>
+  </file>
+  <file src="lib/Notification/Notifier.php">
+    <DeprecatedMethod>
+      <code>getAppValue</code>
+    </DeprecatedMethod>
   </file>
 </files>
