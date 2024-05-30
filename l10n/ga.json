@@ -1,0 +1,9 @@
+{ "translations": {
+    "Nextcloud announcements" : "Fógraí Nextcloud",
+    "Nextcloud announcement" : "Fógra Nextcloud",
+    "Read more" : "Leigh Nios mo",
+    "Disable announcements" : "Díchumasaigh fógraí",
+    "(These announcements are only shown to administrators)" : "(Ní thaispeántar na fógraí seo ach do riarthóirí)",
+    "Nextcloud announcements brings the latest news of Nextcloud into your notifications" : "Tugann fógraí Nextcloud an nuacht is déanaí de Nextcloud isteach i do chuid fógraí"
+},"pluralForm" :"nplurals=5; plural=(n==1 ? 0 : n==2 ? 1 : n<7 ? 2 : n<11 ? 3 : 4);"
+}
