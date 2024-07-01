@@ -1,0 +1,24 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: nextcloud_announcements
+Upstream-Contact: Nextcloud <info@nextcloud.com>
+Source: https://github.com/nextcloud/nextcloud_announcements
+
+Files: l10n/*.js l10n/*.json appinfo/certificate.crt
+Copyright: 2016 Nextcloud GmbH and Nextcloud contributors
+License: AGPL-3.0-or-later
+
+Files: .tx/config
+Copyright: 2018 Nextcloud GmbH and Nextcloud contributors
+License: AGPL-3.0-or-later
+
+Files: .github/CODEOWNERS
+Copyright: 2023 Nextcloud GmbH and Nextcloud contributors
+License: AGPL-3.0-or-later
+
+Files: composer.json composer.lock tests/psalm-baseline.xml
+Copyright: 2021 Nextcloud GmbH and Nextcloud contributors
+License: AGPL-3.0-or-later
+
+Files: img/app.svg img/app-dark.svg
+Copyright: 2018-2024 Google LLC
+License: Apache-2.0
