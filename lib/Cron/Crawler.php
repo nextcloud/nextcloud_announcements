@@ -72,7 +72,7 @@ class Crawler extends TimedJob {
 			return;
 		}
 
-		$rssPubDate = (string) $rss->channel->pubDate;
+		$rssPubDate = (string)$rss->channel->pubDate;
 
 		$lastPubDate = $this->config->getAppValue($this->appName, 'pub_date', 'now');
 		if ($lastPubDate === 'now1') {
@@ -89,11 +89,11 @@ class Crawler extends TimedJob {
 		$lastPubDateTime = new \DateTime($lastPubDate);
 
 		foreach ($rss->channel->item as $item) {
-			$id = md5((string) $item->guid);
+			$id = md5((string)$item->guid);
 			if ($this->config->getAppValue($this->appName, $id, '') === 'published') {
 				continue;
 			}
-			$pubDate = new \DateTime((string) $item->pubDate);
+			$pubDate = new \DateTime((string)$item->pubDate);
 
 			if ($pubDate <= $lastPubDateTime) {
 				continue;
@@ -103,8 +103,8 @@ class Crawler extends TimedJob {
 			$notification->setApp($this->appName)
 				->setDateTime($pubDate)
 				->setObject($this->appName, $id)
-				->setSubject(Notifier::SUBJECT, [(string) $item->title])
-				->setLink((string) $item->link);
+				->setSubject(Notifier::SUBJECT, [(string)$item->title])
+				->setLink((string)$item->link);
 
 			foreach ($this->getUsersToNotify() as $uid) {
 				$notification->setUser($uid);
