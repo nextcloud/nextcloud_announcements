@@ -28,7 +28,6 @@
 	"require-dev": {
 		"nextcloud/coding-standard": "^1.1",
 		"nextcloud/ocp": "dev-master",
-		"phpunit/phpunit": "^9.6",
 		"psalm/phar": "^5.14"
 	}
 }
