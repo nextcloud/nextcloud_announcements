@@ -124,8 +124,7 @@ class Crawler extends TimedJob {
 	 */
 	protected function loadFeed() {
 		$signature = $this->readFile('.signature');
-
-		if (!$signature) {
+		if ($signature === '' || $signature === null) {
 			throw new \Exception('Invalid signature fetched from the server');
 		}
 
@@ -161,6 +160,9 @@ class Crawler extends TimedJob {
 		}
 
 		$feedBody = $this->readFile('.rss');
+		if ($feedBody === null) {
+			throw new \Exception('Feed body is empty');
+		}
 
 		// Check if the signature actually matches the downloaded content
 		$certificate = openssl_get_publickey(file_get_contents(__DIR__ . '/../../appinfo/certificate.crt'));
@@ -180,24 +182,27 @@ class Crawler extends TimedJob {
 	}
 
 	/**
-	 * @param string $file
-	 * @return string
 	 * @throws \Exception
 	 */
-	protected function readFile($file) {
+	protected function readFile(string $file): ?string {
 		$client = $this->clientService->newClient();
 		$response = $client->get(self::FEED_URL . $file);
 		if ($response->getStatusCode() !== Http::STATUS_OK) {
 			throw new \Exception('Could not load file');
 		}
-		return $response->getBody();
+		$body = $response->getBody();
+		if (is_resource($body)) {
+			$content = stream_get_contents($body);
+			return $content !== false ? $content : null;
+		}
+		return $body;
 	}
 
 	/**
 	 * Get the list of users to notify
 	 * @return string[]
 	 */
-	protected function getUsersToNotify() {
+	protected function getUsersToNotify(): array {
 		if (!empty($this->notifyUsers)) {
 			return array_keys($this->notifyUsers);
 		}
