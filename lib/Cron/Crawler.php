@@ -61,6 +61,10 @@ class Crawler extends TimedJob {
 
 
 	protected function run(mixed $argument): void {
+		if ($this->config->getSystemValueBool('has_internet_connection', true) === false) {
+			\OC::$server->getLogger()->info('This instance does not have Internet connection to access the Nextcloud feed platform.', ['app' => $this->appName]);
+			return;
+		}
 		try {
 			$feedBody = $this->loadFeed();
 			$rss = simplexml_load_string($feedBody);
