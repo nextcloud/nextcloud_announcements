@@ -19,36 +19,25 @@ use OCP\IGroupManager;
 use OCP\IUser;
 use OCP\Notification\IManager as INotificationManager;
 use phpseclib\File\X509;
+use Psr\Log\LoggerInterface;
 
 class Crawler extends TimedJob {
 	public const FEED_URL = 'https://pushfeed.nextcloud.com/feed';
 
-	/** @var string */
-	protected $appName;
-	/** @var IConfig */
-	protected $config;
-	/** @var IGroupManager */
-	protected $groupManager;
-	/** @var INotificationManager */
-	protected $notificationManager;
-	/** @var IClientService */
-	protected $clientService;
 
 	/** @var array<array-key, bool> */
 	protected $notifyUsers = [];
 
-	public function __construct(string $appName,
+	public function __construct(
 		ITimeFactory $time,
-		IConfig $config,
-		IGroupManager $groupManager,
-		INotificationManager $notificationManager,
-		IClientService $clientService) {
+		protected string $appName,
+		protected IConfig $config,
+		protected IGroupManager $groupManager,
+		protected INotificationManager $notificationManager,
+		protected IClientService $clientService,
+		protected LoggerInterface $logger,
+	) {
 		parent::__construct($time);
-		$this->appName = $appName;
-		$this->config = $config;
-		$this->groupManager = $groupManager;
-		$this->notificationManager = $notificationManager;
-		$this->clientService = $clientService;
 
 		// Run once per day
 		$interval = 24 * 60 * 60;
@@ -62,6 +51,10 @@ class Crawler extends TimedJob {
 
 
 	protected function run(mixed $argument): void {
+		if ($this->config->getSystemValueBool('has_internet_connection', true) === false) {
+			$this->logger->info('This instance does not have Internet connection to access the Nextcloud feed platform.', ['app' => $this->appName]);
+			return;
+		}
 		try {
 			$feedBody = $this->loadFeed();
 			$rss = simplexml_load_string($feedBody);
