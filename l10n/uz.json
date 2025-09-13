@@ -1,0 +1,9 @@
+{ "translations": {
+    "Nextcloud announcements" : "Nextcloud e'lonlari",
+    "Nextcloud announcement" : "Nextcloud e'loni",
+    "Read more" : "Ko'proq o'qish",
+    "Disable announcements" : "E'lonlarni o'chirib qo'ying",
+    "(These announcements are only shown to administrators)" : "(Ushbu e'lonlar faqat administratorlarga ko'rsatiladi)",
+    "Nextcloud announcements brings the latest news of Nextcloud into your notifications" : "Nextcloud e'lonlari xabarnomalaringizga Nextcloud-ning so'nggi yangiliklarini olib keladi"
+},"pluralForm" :"nplurals=1; plural=0;"
+}
