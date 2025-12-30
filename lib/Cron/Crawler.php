@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /**
  * SPDX-FileCopyrightText: 2016 Nextcloud GmbH and Nextcloud contributors
  * SPDX-License-Identifier: AGPL-3.0-or-later
@@ -21,12 +23,12 @@ use OCP\Notification\IManager as INotificationManager;
 use phpseclib\File\X509;
 use Psr\Log\LoggerInterface;
 
-class Crawler extends TimedJob {
+final class Crawler extends TimedJob {
 	public const FEED_URL = 'https://pushfeed.nextcloud.com/feed';
 
 
 	/** @var array<array-key, bool> */
-	protected $notifyUsers = [];
+	protected array $notifyUsers = [];
 
 	public function __construct(
 		ITimeFactory $time,
@@ -50,6 +52,7 @@ class Crawler extends TimedJob {
 	}
 
 
+	#[\Override]
 	protected function run(mixed $argument): void {
 		if ($this->config->getSystemValueBool('has_internet_connection', true) === false) {
 			$this->logger->info('This instance does not have Internet connection to access the Nextcloud feed platform.', ['app' => $this->appName]);
@@ -115,7 +118,7 @@ class Crawler extends TimedJob {
 	 * @return string
 	 * @throws \Exception
 	 */
-	protected function loadFeed() {
+	protected function loadFeed(): string {
 		$signature = $this->readFile('.signature');
 		if ($signature === '' || $signature === null) {
 			throw new \Exception('Invalid signature fetched from the server');

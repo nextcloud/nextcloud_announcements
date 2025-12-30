@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /**
  * SPDX-FileCopyrightText: 2016 Nextcloud GmbH and Nextcloud contributors
  * SPDX-License-Identifier: AGPL-3.0-or-later
@@ -13,17 +15,19 @@ use OCP\AppFramework\Bootstrap\IBootContext;
 use OCP\AppFramework\Bootstrap\IBootstrap;
 use OCP\AppFramework\Bootstrap\IRegistrationContext;
 
-class Application extends App implements IBootstrap {
+final class Application extends App implements IBootstrap {
 	public const APP_ID = 'nextcloud_announcements';
 
 	public function __construct() {
 		parent::__construct(self::APP_ID);
 	}
 
+	#[\Override]
 	public function register(IRegistrationContext $context): void {
 		$context->registerNotifierService(Notifier::class);
 	}
 
+	#[\Override]
 	public function boot(IBootContext $context): void {
 	}
 }

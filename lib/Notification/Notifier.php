@@ -16,7 +16,7 @@ use OCP\Notification\INotification;
 use OCP\Notification\INotifier;
 use OCP\Notification\UnknownNotificationException;
 
-class Notifier implements INotifier {
+final class Notifier implements INotifier {
 	public const SUBJECT = 'announced';
 
 	/** @var string */
@@ -48,6 +48,7 @@ class Notifier implements INotifier {
 	 * @return string
 	 * @since 17.0.0
 	 */
+	#[\Override]
 	public function getID(): string {
 		return $this->appName;
 	}
@@ -58,6 +59,7 @@ class Notifier implements INotifier {
 	 * @return string
 	 * @since 17.0.0
 	 */
+	#[\Override]
 	public function getName(): string {
 		return $this->l10nFactory->get($this->appName)->t('Nextcloud announcements');
 	}
@@ -68,6 +70,7 @@ class Notifier implements INotifier {
 	 * @return INotification
 	 * @throws UnknownNotificationException When the notification was not prepared by a notifier
 	 */
+	#[\Override]
 	public function prepare(INotification $notification, string $languageCode): INotification {
 		if ($notification->getApp() !== $this->appName) {
 			// Not my app => throw
