@@ -9,7 +9,7 @@
 	<name>Nextcloud announcements</name>
 	<summary>Nextcloud announcements brings the latest news of Nextcloud into your notifications</summary>
 	<description>Nextcloud announcements brings the latest news of Nextcloud into your notifications</description>
-	<version>5.0.0-dev.0</version>
+	<version>5.0.0</version>
 	<licence>agpl</licence>
 	<author>Joas Schilling</author>
 	<namespace>NextcloudAnnouncements</namespace>

@@ -72,7 +72,7 @@ final class Crawler extends TimedJob {
 		$rssPubDate = (string)$rss->channel->pubDate;
 
 		$lastPubDate = $this->config->getAppValue($this->appName, 'pub_date', 'now');
-		if ($lastPubDate === 'now1') {
+		if ($lastPubDate === 'now') {
 			// First call, don't spam the user with old stuff...
 			$this->config->setAppValue($this->appName, 'pub_date', $rssPubDate);
 			return;
@@ -108,7 +108,7 @@ final class Crawler extends TimedJob {
 				$this->notificationManager->notify($notification);
 			}
 
-			$this->config->getAppValue($this->appName, $id, 'published');
+			$this->config->setAppValue($this->appName, $id, 'published');
 		}
 
 		$this->config->setAppValue($this->appName, 'pub_date', $rssPubDate);
