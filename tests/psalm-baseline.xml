@@ -1,21 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="6.1.0@827971f8bc7a28bb4f842f34bf8901521de1cea3">
+<files psalm-version="6.14.3@d0b040a91f280f071c1abcb1b77ce3822058725a">
   <file src="lib/Cron/Crawler.php">
     <DeprecatedMethod>
       <code><![CDATA[getAppValue]]></code>
       <code><![CDATA[getAppValue]]></code>
       <code><![CDATA[getAppValue]]></code>
       <code><![CDATA[getAppValue]]></code>
-      <code><![CDATA[getAppValue]]></code>
+      <code><![CDATA[setAppValue]]></code>
       <code><![CDATA[setAppValue]]></code>
       <code><![CDATA[setAppValue]]></code>
     </DeprecatedMethod>
-    <InvalidReturnStatement>
-      <code><![CDATA[$response->getBody()]]></code>
-    </InvalidReturnStatement>
-    <InvalidReturnType>
-      <code><![CDATA[string]]></code>
-    </InvalidReturnType>
     <PossiblyFalseArgument>
       <code><![CDATA[$certificate]]></code>
       <code><![CDATA[$certificate]]></code>
