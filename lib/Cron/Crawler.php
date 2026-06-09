@@ -26,7 +26,6 @@ use Psr\Log\LoggerInterface;
 final class Crawler extends TimedJob {
 	public const FEED_URL = 'https://pushfeed.nextcloud.com/feed';
 
-
 	/** @var array<array-key, bool> */
 	protected array $notifyUsers = [];
 
@@ -50,7 +49,6 @@ final class Crawler extends TimedJob {
 		// this should not run during maintenance to not overload the target server
 		$this->setTimeSensitivity(IJob::TIME_SENSITIVE);
 	}
-
 
 	#[\Override]
 	protected function run(mixed $argument): void {
