@@ -110,7 +110,6 @@ final class Notifier implements INotifier {
 				$notification->setParsedMessage($message);
 
 				return $notification;
-
 			default:
 				// Unknown subject => Unknown notification => throw
 				throw new UnknownNotificationException();
