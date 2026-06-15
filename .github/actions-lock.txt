@@ -2,13 +2,13 @@
 # SPDX-License-Identifier: MIT
 25fc4c7e69e778e20bdc9eb0cc96367e block-merge-freeze.yml
 003108ea0f5c12e1db591cd4613304d8 dependabot-approve-merge.yml
-80a58e5584612def0e751fcfb7669814 lint-info-xml.yml
-a674b6e725bcbc1064f7b68c678a2df6 lint-php-cs.yml
-6078222f7c61540504fa9892729f4a04 lint-php.yml
-1a3ce26e019f736c5f96c37675d8c530 phpunit-mysql.yml
+784303cf47612e5c4eac621dfab5b4f4 lint-info-xml.yml
+4f7ee6ee721c4646c0b78be5b08281a2 lint-php-cs.yml
+5641ed31bf9a8b1841fffbea34dbd7b2 lint-php.yml
+690f9324b33d3785798689197b433c4a phpunit-mysql.yml
 3c4a096b3b7dbaef0f8e5190ffe13518 pr-feedback.yml
-9fe5efdf1113d7fe92ba1f54f1111c4f psalm.yml
-7db5b820f3750eebe988005a0bb2febd reuse.yml
-9dc6b717be0006fc7974a50351686fd7 sync-workflow-templates.yml
+2f5f5a0851cc4bf00a0b89d009ab258a psalm.yml
+e2bd0fc8a290e1a8641487944e27103b reuse.yml
+e3c7b8f43850ad1d31c67fc0082b6bb8 sync-workflow-templates.yml
 a3440826636c0fd7c2d20b1de50363da update-nextcloud-ocp-approve-merge.yml
-94d83c701a5583dc4b36a5f471bb9e41 update-nextcloud-ocp.yml
+942a700573ae377e4b7777470d5739cf update-nextcloud-ocp.yml
