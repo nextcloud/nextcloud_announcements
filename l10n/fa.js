@@ -1,11 +1,11 @@
 OC.L10N.register(
     "nextcloud_announcements",
     {
-    "Nextcloud announcements" : "اطلاعیه نکست کلود",
-    "Nextcloud announcement" : "اعلامیه نکست کلود",
+    "Nextcloud announcements" : "اعلان‌های نکست‌کلود",
+    "Nextcloud announcement" : "اعلان نکست‌کلود",
     "Read more" : "بیشتر بخوانید",
-    "Disable announcements" : "غیرفعال کردن اعلان ها",
-    "(These announcements are only shown to administrators)" : "(این اطلاعیه ها فقط به سرپرستان نشان داده می شوند)",
-    "Nextcloud announcements brings the latest news of Nextcloud into your notifications" : "اعلان های نکست کلود آخرین اخبار نکست کلود را در اطلاعیه های شما به ارمغان می آورد"
+    "Disable announcements" : "غیرفعال‌سازی اعلان‌ها",
+    "(These announcements are only shown to administrators)" : "(این اعلان‌ها فقط به مدیران نمایش داده می‌شوند)",
+    "Nextcloud announcements brings the latest news of Nextcloud into your notifications" : "اعلان‌های نکست‌کلود آخرین اخبار نکست‌کلود را به اعلان‌های شما می‌آورد"
 },
 "nplurals=2; plural=(n > 1);");
