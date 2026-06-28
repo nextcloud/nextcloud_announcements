@@ -10,7 +10,7 @@
 	<summary>Nextcloud announcements brings the latest news of Nextcloud into your notifications</summary>
 	<description>Nextcloud announcements brings the latest news of Nextcloud into your notifications</description>
 	<version>7.0.0-dev.0</version>
-	<licence>agpl</licence>
+	<licence>AGPL-3.0-or-later</licence>
 	<author>Joas Schilling</author>
 	<namespace>NextcloudAnnouncements</namespace>
 
