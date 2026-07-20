@@ -20,7 +20,7 @@ use OCP\IGroup;
 use OCP\IGroupManager;
 use OCP\IUser;
 use OCP\Notification\IManager as INotificationManager;
-use phpseclib\File\X509;
+use phpseclib3\File\X509;
 use Psr\Log\LoggerInterface;
 
 final class Crawler extends TimedJob {
