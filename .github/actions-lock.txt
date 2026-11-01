@@ -10,4 +10,4 @@ ccf70525553e797b8d7a1fb30d344323 phpunit-mysql.yml
 dc1f60c242a2377a0de26a521c68b49a psalm.yml
 2dbec18233063b42f4d8e03bbb43671c reuse.yml
 abcb8206c3f6c5a9dc86cccf57846bfc update-nextcloud-ocp-approve-merge.yml
-5165b2cbba7d5b36735419524e2fe4e9 update-nextcloud-ocp.yml
+9d8001c85ee83c52786a6b1b3243a45b update-nextcloud-ocp.yml
